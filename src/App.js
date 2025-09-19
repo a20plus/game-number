@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [boxSize, setBoxSize] = useState(null);
@@ -28,7 +28,18 @@ function Menu({ setBoxSize }) {
 }
 
 function Game({ boxSize }) {
-  const cells = Array.from({ length: boxSize * boxSize }, (b, i) => i);
+  const cells = Array.from({ length: boxSize * boxSize }, (ـ, i) => i);
+  const [numbers, setNumbers] = useState([]);
+
+  useEffect(() => {
+    const totalCells = boxSize * boxSize;
+    const startNumber = Math.floor(Math.random() * 91) + 10;
+    const nums = Array.from({ length: totalCells }, (_, i) => startNumber + i);
+
+    nums.sort(() => Math.random() - 0.5);
+
+    setNumbers(nums);
+  }, [boxSize]);
 
   return (
     <div
@@ -36,12 +47,11 @@ function Game({ boxSize }) {
         display: "grid",
         gridTemplateColumns: `repeat(${boxSize}, 80px)`,
         gap: "5px",
-        // border: "solid 0px #000",
       }}
     >
-      {cells.map((cell) => (
+      {numbers.map((num, i) => (
         <div
-          key={cell}
+          key={i}
           style={{
             width: "80px",
             height: "80px",
@@ -50,9 +60,10 @@ function Game({ boxSize }) {
             alignItems: "center",
             justifyContent: "center",
             fontSize: "20px",
+            cursor: "pointer"
           }}
         >
-          {cell + 1}
+          {num}
         </div>
       ))}
     </div>
