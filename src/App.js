@@ -48,7 +48,7 @@ function Menu({ setBoxSize }) {
 }
 
 function Game({ boxSize }) {
-  const initialStageTime = 9999;
+  const initialStageTime = 20;
 
   const [time, setTime] = useState(initialStageTime);
   const [stageTime, setStageTime] = useState(initialStageTime);
