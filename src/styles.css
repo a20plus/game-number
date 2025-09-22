@@ -1,0 +1,205 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  padding: 3rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.App {
+  color: #000;
+}
+
+.main {
+  height: 90vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.937),
+      rgba(40, 180, 131, 0.882)
+    ),
+    url("/public/img/back.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main .text-box h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: 3rem;
+  margin-bottom: 4rem;
+  animation: moveToRight 1s ease-out;
+}
+
+.main .text-box p {
+  font-size: 1.4rem;
+  letter-spacing: 0.4rem;
+  animation: moveToLeft 1s ease-out;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.main .text-box .buttons {
+  animation: moveToTop 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+
+.main .text-box .buttons button {
+  background-color: #fff;
+  color: #777;
+  text-transform: uppercase;
+  border: none;
+  padding: 1.5rem 5rem;
+  margin: 2rem 1rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.main .text-box .buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.main .text-box .buttons button:hover:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+@keyframes moveToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/public/img/back.jpg") top/cover no-repeat;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.box {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  background: linear-gradient(to right, rgb(255, 255, 255) 50%, transparent 50%),
+    url("/public/img/back.jpg") center/cover no-repeat;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  flex: 1;
+}
+
+.content h1 {
+  color: #687268;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding: 1.5rem 2rem;
+  border-bottom: solid 0.8rem #66e66e;
+  margin-bottom: 1rem;
+}
+
+.content .green-box {
+  width: 100%;
+  padding: 1rem;
+  background-color: #58ff85;
+}
+
+.content .green-box span {
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-right: 3rem;
+  font-weight: 100;
+  font-style: italic;
+  color: #333;
+}
+
+.content .stones {
+  margin: 2rem;
+}
+
+.content .stone {
+  width: 9rem;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 5rem;
+}
